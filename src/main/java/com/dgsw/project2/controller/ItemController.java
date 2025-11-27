@@ -1,6 +1,7 @@
 package com.dgsw.project2.controller;
 
 import com.dgsw.project2.dto.request.CreateItemRequest;
+import com.dgsw.project2.dto.request.SearchItemRequest;
 import com.dgsw.project2.dto.response.ItemResponse;
 import com.dgsw.project2.service.ItemService;
 import lombok.RequiredArgsConstructor;
@@ -54,5 +55,10 @@ public class ItemController {
     @GetMapping("/price/greater-than")
     public ResponseEntity<List<ItemResponse>> findByPriceGreaterThan(Long price) {
         return ResponseEntity.ok().body(itemService.findByPriceGreaterThan(price));
+    }
+
+    @GetMapping("/search")
+    public ResponseEntity<List<ItemResponse>> search(SearchItemRequest request) {
+        return ResponseEntity.ok().body(itemService.search(request));
     }
 }

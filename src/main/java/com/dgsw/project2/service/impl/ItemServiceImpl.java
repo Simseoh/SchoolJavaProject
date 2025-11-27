@@ -2,8 +2,10 @@ package com.dgsw.project2.service.impl;
 
 import com.dgsw.project2.domain.ItemEntity;
 import com.dgsw.project2.dto.request.CreateItemRequest;
+import com.dgsw.project2.dto.request.SearchItemRequest;
 import com.dgsw.project2.dto.response.ItemResponse;
 import com.dgsw.project2.repository.ItemRepository;
+import com.dgsw.project2.repository.ItemRepositoryCustom;
 import com.dgsw.project2.service.ItemService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -17,6 +19,7 @@ import java.util.Optional;
 @Transactional
 public class ItemServiceImpl implements ItemService {
     private final ItemRepository itemRepository;
+    private final ItemRepositoryCustom itemRepositoryCustom;
 
     @Override
     public ItemResponse create(CreateItemRequest request) {
@@ -56,5 +59,10 @@ public class ItemServiceImpl implements ItemService {
     @Override
     public List<ItemResponse> findByPriceGreaterThan(Long price) {
         return itemRepository.findByPriceGreaterThan(price).stream().map(ItemResponse::of).toList();
+    }
+
+    @Override
+    public List<ItemResponse> search(SearchItemRequest request) {
+        return itemRepositoryCustom.search(request.title(), request.minPrice(), request.maxPrice(), request.sortBy()).stream().map(ItemResponse::of).toList();
     }
 }
