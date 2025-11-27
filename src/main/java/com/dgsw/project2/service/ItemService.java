@@ -11,4 +11,6 @@ public interface ItemService {
     List<ItemResponse> findAll();
     void delete(Long id);
     ItemResponse update(Long id, CreateItemRequest request);
+    List<ItemResponse> findByTitleLike(String keyword);
+    List<ItemResponse> findByPriceGreaterThan(Long price);
 }

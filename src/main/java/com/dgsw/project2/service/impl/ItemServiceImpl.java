@@ -47,4 +47,14 @@ public class ItemServiceImpl implements ItemService {
         Optional.ofNullable(request.description()).ifPresent(item::setDescription);
         return ItemResponse.of(itemRepository.save(item));
     }
+
+    @Override
+    public List<ItemResponse> findByTitleLike(String keyword) {
+        return itemRepository.findByTitleLike(keyword).stream().map(ItemResponse::of).toList();
+    }
+
+    @Override
+    public List<ItemResponse> findByPriceGreaterThan(Long price) {
+        return itemRepository.findByPriceGreaterThan(price).stream().map(ItemResponse::of).toList();
+    }
 }
