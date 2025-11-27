@@ -34,7 +34,7 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok'
 
     // DB
-    runtimeOnly 'com.h2database:h2'
+    implementation 'com.h2database:h2'
 
     // QueryDSL
     implementation "io.github.openfeign.querydsl:querydsl-jpa:6.12"
