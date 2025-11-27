@@ -45,4 +45,14 @@ public class ItemController {
     ) {
       return ResponseEntity.ok().body(itemService.update(itemId, request));
     }
+
+    @GetMapping("/title/like")
+    public ResponseEntity<List<ItemResponse>> findByTitleLike(String keyword) {
+        return ResponseEntity.ok().body(itemService.findByTitleLike(keyword));
+    }
+
+    @GetMapping("/price/greater-than")
+    public ResponseEntity<List<ItemResponse>> findByPriceGreaterThan(Long price) {
+        return ResponseEntity.ok().body(itemService.findByPriceGreaterThan(price));
+    }
 }
