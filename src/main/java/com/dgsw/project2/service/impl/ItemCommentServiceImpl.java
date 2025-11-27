@@ -9,12 +9,14 @@ import com.dgsw.project2.repository.ItemRepository;
 import com.dgsw.project2.service.ItemCommentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
+@Transactional
 public class ItemCommentServiceImpl implements ItemCommentService {
     private final ItemCommentRepository itemCommentRepository;
     private final ItemRepository itemRepository;
