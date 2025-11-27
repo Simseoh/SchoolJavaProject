@@ -13,6 +13,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
+@RequestMapping("/item/comments")
 public class ItemCommentController {
     private final ItemCommentService itemCommentService;
 
