@@ -13,7 +13,13 @@ spring:
     defer-datasource-initialization: true
 
   datasource:
-    url: jdbc:h2:mem:testdb
+    url: jdbc:h2:~/testdb
+<<<<<<< HEAD
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+=======
+>>>>>>> 4b7b934 (H2 콘솔(file-based) 설정 추가 및 런타임 파일 무시 (.gitignore))
 
   h2:
     console:
