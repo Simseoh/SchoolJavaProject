@@ -3,11 +3,6 @@ package com.dgsw.project2.controller;
 import com.dgsw.project2.dto.request.CreateItemCommentRequest;
 import com.dgsw.project2.dto.request.UpdateItemCommentRequest;
 import com.dgsw.project2.dto.response.ItemCommentResponse;
-package com.dgsw.project2.controller;
-
-import com.dgsw.project2.dto.request.CreateItemCommentRequest;
-import com.dgsw.project2.dto.request.UpdateItemCommentRequest;
-import com.dgsw.project2.dto.response.ItemCommentResponse;
 import com.dgsw.project2.service.ItemCommentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -45,4 +40,3 @@ public class ItemCommentController {
         itemCommentService.delete(id);
     }
 }
-        itemCommentService.delete(commentId);
